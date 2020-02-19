@@ -6,7 +6,7 @@ cache: bundler
 jdk:
   - openjdk8
 addons:
-  postgresql: 10
+  postgresql: "10"
   apt:
     sources:
     - google-chrome
@@ -17,6 +17,8 @@ addons:
 
 before_install:
 - nvm install 11.15.0
+- sudo cp /etc/postgresql/{9.6,10}/main/pg_hba.conf
+- sudo /etc/init.d/postgresql restart
 before_script:
 - mkdir -p log
 - cp config/travis/database.yml config/
