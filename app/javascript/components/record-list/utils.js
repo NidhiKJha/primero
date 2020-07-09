@@ -53,7 +53,10 @@ export const buildTableColumns = (allowedColumns, i18n, recordType, css) => {
                       image={value}
                     />
                   </div>
-                )
+                ),
+
+                setCellProps: () => ({ id: "check" }),
+                setCellHeaderProps: () => ({ header: "check" })
               }
             : {}),
           ...(column.get("name") === "registration_date"
